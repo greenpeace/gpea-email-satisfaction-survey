@@ -1,0 +1,18 @@
+{
+  "name": "email-satisfaction-survey-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "GOOGLE_APPLICATION_CREDENTIALS=credentials.json nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "googleapis": "^47.0.0",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
