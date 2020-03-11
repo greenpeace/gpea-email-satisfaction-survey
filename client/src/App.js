@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import queryString from 'query-string'
-import TickImg from './static/tick.png'
 import './App.scss';
 
 

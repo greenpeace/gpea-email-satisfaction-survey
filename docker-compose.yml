@@ -6,3 +6,6 @@ services:
     restart: always
     ports:
       - "16620:3001"
+    environment:
+      - spreadsheetId=1BAjRU_pit_9WMDjilwak85saWNvtjG7yF1exKWPWnrg
+      - sheetName=回應
