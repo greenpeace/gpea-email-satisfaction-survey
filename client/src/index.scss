@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
+
+$family-sans-serif: "Noto Sans TC", "微軟正黑體", "Microsoft JhengHei", "Roboto Sans", sans-serif;
+
+$primary: #6c0;
+$text-strong: #eb9062;
+
+// $progress-value-background-color: #ec6a00;
+// $progress-bar-background-color: #272525;
+
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+@import "../node_modules/bulma/sass/base/_all.sass";
+@import "../node_modules/bulma/sass/components/_all.sass";
+@import "../node_modules/bulma/sass/elements/_all.sass";
+@import "../node_modules/bulma/sass/form/_all.sass";
+@import "../node_modules/bulma/sass/grid/_all.sass";
+@import "../node_modules/bulma/sass/layout/_all.sass";

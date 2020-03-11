@@ -1,0 +1,50 @@
+html, body {
+  background-color: #88ad85;
+  color: white;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  padding: 1rem;
+  justify-content: center;
+
+  .title {
+    // color: white;
+    color: #afffa0;
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    line-height: 150%;
+    font-size: 1.5rem;
+  }
+
+  .succ-icon {
+    width: 80vw;
+    max-width: 240px;
+    margin-top: 2rem;
+  }
+
+  .more-feedback {
+    display: flex;
+    flex-direction: column;
+
+    textarea {
+      margin: 1rem 0;
+    }
+
+    .button {
+      background-color: transparent;
+      border-color: white;
+      border-width: 2px;
+    }
+  }
+}
