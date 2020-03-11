@@ -92,7 +92,6 @@ class	SurveySheet {
 
 		let map = await this.getHeaderNameToIdx()
 
-
 		// find the email and subject
 		let columnIdAZ = String.fromCharCode(65+map["email"])
 		let response = await this.sheets.spreadsheets.values.get({
@@ -108,9 +107,6 @@ class	SurveySheet {
 		});
 		let subjects = response.data.values.map( r => r[0])
 
-		// console.log('emails', emails)
-		// console.log('subjects', subjects)
-
 		let foundRowIdx = null
 		for (var i=emails.length-1; i>=0; i--) {
 			if (emails[i]===kvs.email && subjects[i]===kvs.subject ) {
@@ -124,16 +120,12 @@ class	SurveySheet {
 		let inserts
 		let f
 		if (foundRowIdx) {
-			console.log('foundRowIdx', foundRowIdx)
-
 			response = await this.sheets.spreadsheets.values.get({
 			  spreadsheetId: this.spreadsheetId,
 			  range: `${this.sheetName}!A${foundRowIdx}:Z${foundRowIdx}`
 			});
 			inserts = response.data.values[0]
 			inserts.length = Object.keys(kvs).length // makesure the length is long enough
-
-			console.log('original', inserts)
 
 			Object.keys(kvs).forEach((k) => {
 				if (k in map) {
@@ -143,8 +135,6 @@ class	SurveySheet {
 				// update th updated time stamp
 				inserts[map["updated_at"]] = moment().format('YYYY/MM/DD hh:mm:ss')
 			})
-
-			console.log('after', inserts)
 
 			range = `${this.sheetName}!A${foundRowIdx}:${String.fromCharCode(65+inserts.length)}${foundRowIdx}`
 			f = "update"
@@ -163,11 +153,9 @@ class	SurveySheet {
 
 			range = `${this.sheetName}`
 			f = "append"
-
-			console.log('after', inserts)
 		}
 
-		console.log('range', range)
+		console.log(f, inserts)
 		await this.sheets.spreadsheets.values[f]({
 		  spreadsheetId: this.spreadsheetId,
 		  range: range,
@@ -178,8 +166,5 @@ class	SurveySheet {
 		})
 	}
 }
-
-// const ss = new SurveySheet()
-// ss.createOrUpdated({email:"emailxy@gmail.com", subject:"subject", stars:"1", note:"OOOOO較請不在？的子單因理完、了人南愛稱出地天想健經；遊評後運小在。吸無參年自源，中的卻？些的部？子學腦展招，吃本錢除大道其來依的話聲良果見曾能不服一都小母分在的時南我型易職！而地代慢得國聯。是意才反受兩口此這影你壓己常業期馬為心，送影氣國亞面不力，心覺口。裡流管可面，我屋賣些太劇因操黃生作院通土臉統國通代於海物始要提器我應人師家道，友簡見而流知沒來持是學好我了病和的走要爭自時經熱高海！"})
 
 module.exports = SurveySheet

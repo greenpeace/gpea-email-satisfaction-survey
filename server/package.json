@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
+    "start": "GOOGLE_APPLICATION_CREDENTIALS=credentials.json node index.js",
     "dev": "GOOGLE_APPLICATION_CREDENTIALS=credentials.json nodemon index.js"
   },
   "dependencies": {
